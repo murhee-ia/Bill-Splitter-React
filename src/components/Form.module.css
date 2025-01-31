@@ -1,5 +1,5 @@
 .form-container {
-    width: 80%;
+    width: 85%;
     height: auto;
     background: transparent;
     padding: 1rem;
@@ -11,6 +11,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
+    box-shadow: 0 4px 10px rgba(237, 246, 249, 0.2), /* Subtle outer glow */
+                0 0 16px rgba(237, 246, 249, 0.3); /* Highlight for depth */
 }
 
 .form-container > h2 {
@@ -32,12 +35,21 @@
     width: 80%;
 }
 
-.form-body > label {
+.form-body > .name-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.4rem;
+}
+
+.form-body > label,
+.form-body > .name-section label   {
     color: var(--gold);
     font-weight: 600;
 }
 
-.form-body > div:not(.checkbox-input) {
+.form-body > div:not(.checkbox-input, .name-section),
+.form-body > .name-section > div > div {
     background-color: var(--custom-white);
     padding: 10px 15px;
     border-radius: 1rem;
@@ -47,12 +59,11 @@
     gap: 10px;
 }
 
-.form-body > div > :first-child {
+.form-body > div:not(.name-section) > :first-child {
     color: var(--custom-black);
 }
 
-.form-body > div > input[type="email"],
-.form-body > div > input[type="password"] {
+.form-body input:not(input[type="checkbox"]) {
     background: none;
     border: none;
     width: 100%;
@@ -91,6 +102,7 @@
 }
 
 .form-container > span {
+    margin-top: -0.6rem;
     color: var(--gray);
 }
 
@@ -101,7 +113,6 @@
 }
 
 .form-bar {
-    margin: 1.4rem 0;
     border-top: 1px solid var(--custom-white);
     width: 90%;
     opacity: 70%;

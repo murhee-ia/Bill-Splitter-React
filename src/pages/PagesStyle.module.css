@@ -9,6 +9,8 @@
 .hero-container {
     display: flex;
     padding: 2rem;
+    align-items: center;
+    justify-content: center;
 }
   
 .context-side {
