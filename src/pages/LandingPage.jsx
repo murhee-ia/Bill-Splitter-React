@@ -4,6 +4,17 @@ import Signin_up_form from '../components/Signin_up_form'
 const LandingPage = () => {
   return (
     <div className={styles['landing-page-container']}>
+      <div className={styles['header-container']}>
+        <div>
+          <img src="/pictures/Logo.png" alt="Logo" />
+          <span>Bill Splitter</span>
+        </div>
+        <div>
+          <a href="#explore">Explore</a>
+          <a href="#contact">Contact</a>
+          <a href="#about">About</a>
+        </div>
+      </div>
       <div className={styles['hero-container']}>
         <div className={styles['context-side']}>
           <div className={styles['animated-icons']}>

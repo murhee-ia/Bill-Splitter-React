@@ -11,7 +11,6 @@ const Signin_up_form = () => {
     email: '',
     username: '',
     password: '',
-    confirmPassword: '',
     rememberMe: false
   });
 
@@ -29,15 +28,6 @@ const Signin_up_form = () => {
 
   const toggleForm = () => {
     setIs_Signing_in(!is_Signing_in);
-    setFormData({
-      firstName: '',
-      lastName: '',
-      email: '',
-      username: '',
-      password: '',
-      confirmPassword: '',
-      rememberMe: false
-    });
   };
 
 
@@ -55,18 +45,18 @@ const Signin_up_form = () => {
               <div className={styles['name-section']}>
                 <div>
                   <label htmlFor="">First Name</label>
-                  <div><input type="text" name='firstName' placeholder='Enter your First name' value={formData.firstName} onChange={handleInputChange} required/></div>
+                  <div style={{marginTop:'1rem'}}><input type="text" name='firstName' placeholder='Enter your First name' value={formData.firstName} onChange={handleInputChange} required/></div>
                 </div>
                 <div>
                   <label htmlFor="">Last Name</label>
-                  <div><input type="text" name='lastName' placeholder='Enter your Last name' value={formData.lastName} onChange={handleInputChange} required/></div>
+                  <div style={{marginTop:'1rem'}}><input type="text" name='lastName' placeholder='Enter your Last name' value={formData.lastName} onChange={handleInputChange} required/></div>
                 </div>
               </div>
             </>
           )
         }
         <label htmlFor="">Email</label>
-        <div><FaEnvelope /><input type="email" name="email" placeholder='Enter your email address'/></div>
+        <div><FaEnvelope /><input type="email" name="email" placeholder='Enter your email address' value={formData.email} onChange={handleInputChange} required /></div>
         {
           !is_Signing_in && (
             <>
@@ -76,7 +66,7 @@ const Signin_up_form = () => {
           )
         }
         <label htmlFor="">Password</label>
-        <div><FaLock /><input type="password" name="password" placeholder='Enter your password'/></div>
+        <div><FaLock /><input type="password" name="password" placeholder='Enter your password' value={formData.password} onChange={handleInputChange} required/></div>
         {
           !is_Signing_in && (
             <>
@@ -94,7 +84,7 @@ const Signin_up_form = () => {
       <div className={styles['form-bar']} style={{ margin: is_Signing_in ? '2rem 0 1rem' : '0.1rem 0 1rem' }}></div>
 
       <div className={styles['form-footer']}>
-        <p>Don't Have an Account yet?</p>
+        <p>{ is_Signing_in ? "Don't Have an Account yet?" : "Already has an Account?"}</p>
         <p onClick={toggleForm}>Click Here to { is_Signing_in ? 'Register' : 'Log in'}</p>
       </div>
 
